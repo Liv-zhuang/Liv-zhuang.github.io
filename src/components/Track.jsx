@@ -31,6 +31,9 @@ export default function Track() {
                     {item.label}
                   </Text>
                 </HStack>
+                <Text fontFamily="mono" fontSize="xs" color="accent">
+                  {item.path}
+                </Text>
                 <Box flex={1} h="1px" bgGradient="linear(to-r, var(--border-strong), transparent)" />
               </HStack>
               <HStack spacing={8} mt={3} mb={3}>

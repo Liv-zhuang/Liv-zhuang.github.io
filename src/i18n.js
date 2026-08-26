@@ -15,7 +15,7 @@ const resources = {
         researchTitle: '实习与工作经历',
         educationTitle: '教育经历',
         research: [
-          { title: '睿联技术（Reolink）', sub: '校招+社招，覆盖技术研发职能', years: '2024.07 — 2025.02', href: 'https://reolink.com/', logo: '/logos/reolink.png' },
+          { title: '睿联技术（Reolink）', sub: '校招+社招，覆盖技术研发职能', years: '2024.07 — 2025.02', href: 'https://reolink.com/', logo: '/logos/reolink.png', linkText: 'Reolink' },
           { title: '顺丰速运', sub: '校招+社招+人才培养（校招生+实习生）', years: '2025.04 — 2026.02', logo: '/logos/sf.ico' },
           { title: '独立猎头', sub: '大模型 & 具身智能 · 高端人才连接', years: '2025 — 至今' },
         ],
@@ -99,7 +99,7 @@ const resources = {
         researchTitle: 'Internships & Work',
         educationTitle: 'Education',
         research: [
-          { title: 'Reolink', sub: 'Campus + social recruiting, tech R&D roles', years: '2024.07 — 2025.02', href: 'https://reolink.com/', logo: '/logos/reolink.png' },
+          { title: 'Reolink', sub: 'Campus + social recruiting, tech R&D roles', years: '2024.07 — 2025.02', href: 'https://reolink.com/', logo: '/logos/reolink.png', linkText: 'Reolink' },
           { title: 'SF Express', sub: 'Campus + social recruiting & talent programs', years: '2025.04 — 2026.02', logo: '/logos/sf.ico' },
           { title: 'Independent Headhunter', sub: 'LLM & Embodied AI · Executive search', years: '2025 — Present' },
         ],

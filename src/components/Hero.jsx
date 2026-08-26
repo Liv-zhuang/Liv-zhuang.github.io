@@ -184,58 +184,61 @@ export default function Hero() {
                   </Text>
                 </HStack>
                 {research.map((item, index) => {
-                  const row = (
-                    <HStack
-                      spacing={2.5}
-                      p={2}
-                      minH="46px"
-                      align="center"
-                      borderRadius="10px"
-                      border="1px solid"
-                      borderColor="transparent"
-                      transition="background 0.2s ease, border-color 0.2s ease"
-                      _hover={{ bg: 'var(--hover-color)', borderColor: 'var(--border-color)' }}
-                      w="full"
-                    >
-                      <Flex
-                        w="32px"
-                        h="32px"
-                        borderRadius="8px"
-                        bg="var(--elevated-bg)"
-                        border="1px solid"
-                        borderColor="var(--border-color)"
-                        align="center"
-                        justify="center"
-                        flexShrink={0}
-                      >
-                        {item.logo ? (
-                          <Image src={item.logo} alt={item.title} w="24px" h="24px" objectFit="contain" />
-                        ) : (
-                          <Box as={FaBriefcase} color="accent" fontSize="sm" />
-                        )}
-                      </Flex>
-                      <VStack align="start" spacing={0} flex={1} minW={0}>
-                        <Text fontSize={['xs', 'sm']} fontWeight="medium" lineHeight="short" color={headingColor}>
-                          {item.title}
-                        </Text>
-                        <Text fontSize="xs" color={textColor} lineHeight="short" noOfLines={1}>
-                          {item.sub}
-                        </Text>
-                      </VStack>
-                      {item.years && (
-                        <Text fontFamily="mono" fontSize="2xs" color="textMuted" flexShrink={0}>
-                          {item.years}
-                        </Text>
-                      )}
-                    </HStack>
-                  )
-                  return item.href ? (
-                    <Link key={index} href={item.href} isExternal w="full" _hover={{ textDecoration: 'none' }}>
-                      {row}
-                    </Link>
-                  ) : (
+                  const hasLink = item.href && item.linkText
+                  const [before = '', after = ''] = hasLink ? item.title.split(item.linkText) : ['', '']
+                  return (
                     <Box key={index} w="full">
-                      {row}
+                      <HStack
+                        spacing={2.5}
+                        p={2}
+                        minH="46px"
+                        align="center"
+                        borderRadius="10px"
+                        border="1px solid"
+                        borderColor="transparent"
+                        transition="background 0.2s ease, border-color 0.2s ease"
+                        _hover={{ bg: 'var(--hover-color)', borderColor: 'var(--border-color)' }}
+                        w="full"
+                      >
+                        <Flex
+                          w="32px"
+                          h="32px"
+                          borderRadius="8px"
+                          bg="var(--elevated-bg)"
+                          border="1px solid"
+                          borderColor="var(--border-color)"
+                          align="center"
+                          justify="center"
+                          flexShrink={0}
+                        >
+                          {item.logo ? (
+                            <Image src={item.logo} alt={item.title} w="24px" h="24px" objectFit="contain" />
+                          ) : (
+                            <Box as={FaBriefcase} color="accent" fontSize="sm" />
+                          )}
+                        </Flex>
+                        <VStack align="start" spacing={0} flex={1} minW={0}>
+                          <Text fontSize={['xs', 'sm']} fontWeight="medium" lineHeight="short" color={headingColor}>
+                            {before}
+                            {hasLink && (
+                              <Link href={item.href} isExternal _hover={{ textDecoration: 'underline' }}>
+                                <Box as="span" bgGradient={nameGradient} bgClip="text" fontWeight={600}>
+                                  {item.linkText}
+                                </Box>
+                              </Link>
+                            )}
+                            {after}
+                          </Text>
+                          <Text fontSize="xs" color={textColor} lineHeight="short" noOfLines={1}>
+                            {item.sub}
+                          </Text>
+                        </VStack>
+                        {item.years && (
+                          <Text fontFamily="mono" fontSize="2xs" color="textMuted" flexShrink={0}>
+                            {item.years}
+                          </Text>
+                        )}
+                      </HStack>
                     </Box>
                   )
                 })}

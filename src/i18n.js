@@ -101,7 +101,7 @@ const resources = {
         research: [
           { title: 'Reolink', sub: 'Campus + social recruiting, tech R&D roles', years: '2024.07 — 2025.02', href: 'https://reolink.com/', logo: '/logos/reolink.png' },
           { title: 'SF Express', sub: 'Campus + social recruiting & talent programs', years: '2025.04 — 2026.02', logo: '/logos/sf.ico' },
-          { title: 'Independent Headhunter', sub: 'LLM & Embodied AI · Executive search', years: '2025 — Present' },
+          { title: 'Independent Headhunter', sub: 'LLM & Embodied AI · Executive search', years: '2026.04 — Present' },
         ],
         education: [{ course: 'B.A. Human Resource Management', institution: 'Shaoguan University', year: '2021 — 2025', logo: '/logos/sgu.png' }],
         taglineLabel: 'Style: ',

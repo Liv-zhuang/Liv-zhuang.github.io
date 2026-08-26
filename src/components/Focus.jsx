@@ -6,8 +6,8 @@ function ItemList({ items }) {
   return (
     <Stack align="start" spacing={3}>
       {items.map((item, i) => (
-        <Text key={i} fontSize="sm" color="#8b949e" lineHeight="1.7">
-          <Text as="span" color="#30363d" mr={2} fontFamily="mono">
+        <Text key={i} fontSize="sm" color="muted" lineHeight="1.7">
+          <Text as="span" color="dim" mr={2} fontFamily="mono">
             —
           </Text>
           {item}
@@ -29,29 +29,30 @@ export default function Focus() {
       <Text
         fontFamily="mono"
         fontSize="xs"
-        color="#f0925e"
+        color="headerOrange"
         mb={3}
         letterSpacing="widest"
       >
         ## {t('focus.title')}
       </Text>
-      <Divider borderColor="#21262d" mb={8} />
+      <Divider borderColor="border" mb={8} />
 
       <SimpleGrid columns={{ base: 1, md: 2 }} gap={5} mb={5}>
         {groups.map((group) => (
           <Box
             key={group.key}
-            bg="#161b22"
-            border="1px solid #21262d"
+            bg="surface"
+            border="1px solid"
+            borderColor="border"
             borderRadius="md"
             p={6}
-            _hover={{ borderColor: '#30363d' }}
+            _hover={{ borderColor: 'borderStrong' }}
             transition="border-color 0.2s"
           >
             <Text
               fontFamily="mono"
               fontSize="xs"
-              color="#6e7681"
+              color="dim"
               letterSpacing="widest"
               textTransform="uppercase"
               mb={4}
@@ -64,17 +65,18 @@ export default function Focus() {
       </SimpleGrid>
 
       <Box
-        bg="#161b22"
-        border="1px solid #21262d"
+        bg="surface"
+        border="1px solid"
+        borderColor="border"
         borderRadius="md"
         p={6}
-        _hover={{ borderColor: '#30363d' }}
+        _hover={{ borderColor: 'borderStrong' }}
         transition="border-color 0.2s"
       >
         <Text
           fontFamily="mono"
           fontSize="xs"
-          color="#6e7681"
+          color="dim"
           letterSpacing="widest"
           textTransform="uppercase"
           mb={4}

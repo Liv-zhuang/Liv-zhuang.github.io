@@ -14,6 +14,8 @@ const resources = {
       hero: {
         name: 'Liv Zhuang',
         title: '猎头 · 大模型基模 & 具身智能',
+        education: '韶关学院 · 人力资源管理（本科）',
+        experience: '睿联技术 / 顺丰速运 / 独立猎头',
         subtitles: [
           '没有完美的地方，只有最合适的地方',
           '换工作是低频高风险决策',
@@ -143,6 +145,8 @@ const resources = {
       hero: {
         name: 'Liv Zhuang',
         title: 'Headhunter · Foundation Models & Embodied AI',
+        education: 'Shaoguan University · HR Management (B.A.)',
+        experience: 'Reolink / SF Express / Independent',
         subtitles: [
           'No perfect place — only the right fit',
           "Job changes are high-stakes, low-frequency decisions",

@@ -10,20 +10,20 @@ export default function About() {
       <Text
         fontFamily="mono"
         fontSize="xs"
-        color="#f0925e"
+        color="headerOrange"
         mb={3}
         letterSpacing="widest"
       >
         ## {t('about.title')}
       </Text>
-      <Divider borderColor="#21262d" mb={8} />
-      <Text fontSize="sm" color="#8b949e" lineHeight="1.8" mb={4}>
+      <Divider borderColor="border" mb={8} />
+      <Text fontSize="sm" color="muted" lineHeight="1.8" mb={4}>
         {t('about.p1')}
       </Text>
-      <Text fontSize="sm" color="#8b949e" lineHeight="1.8" mb={4}>
+      <Text fontSize="sm" color="muted" lineHeight="1.8" mb={4}>
         {t('about.p2')}
       </Text>
-      <Text fontSize="sm" color="#8b949e" lineHeight="1.8">
+      <Text fontSize="sm" color="muted" lineHeight="1.8">
         {t('about.p3')}
       </Text>
     </Section>

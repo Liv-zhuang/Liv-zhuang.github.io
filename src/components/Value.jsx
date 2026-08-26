@@ -11,29 +11,30 @@ export default function Value() {
       <Text
         fontFamily="mono"
         fontSize="xs"
-        color="#f0925e"
+        color="headerOrange"
         mb={3}
         letterSpacing="widest"
       >
         ## {t('value.title')}
       </Text>
-      <Divider borderColor="#21262d" mb={8} />
+      <Divider borderColor="border" mb={8} />
 
       <SimpleGrid columns={{ base: 2, md: 4 }} gap={4}>
         {items.map((item, i) => (
           <Box
             key={i}
-            bg="#161b22"
-            border="1px solid #21262d"
+            bg="surface"
+            border="1px solid"
+            borderColor="border"
             borderRadius="md"
             p={5}
-            _hover={{ borderColor: '#79c0ff', transform: 'translateY(-2px)' }}
+            _hover={{ borderColor: 'accent', transform: 'translateY(-2px)' }}
             transition="all 0.2s"
           >
-            <Text fontWeight={600} color="#e6edf3" fontSize="sm" mb={2}>
+            <Text fontWeight={600} color="text" fontSize="sm" mb={2}>
               {item.label}
             </Text>
-            <Text fontSize="xs" color="#8b949e" lineHeight="1.7">
+            <Text fontSize="xs" color="muted" lineHeight="1.7">
               {item.desc}
             </Text>
           </Box>

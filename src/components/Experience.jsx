@@ -19,37 +19,38 @@ export default function Experience() {
       <Text
         fontFamily="mono"
         fontSize="xs"
-        color="#f0925e"
+        color="headerOrange"
         mb={3}
         letterSpacing="widest"
       >
         ## {t('experience.title')}
       </Text>
-      <Divider borderColor="#21262d" mb={8} />
+      <Divider borderColor="border" mb={8} />
 
       <Stack spacing={5}>
         {items.map((item, i) => (
           <Box
             key={i}
-            bg="#161b22"
-            border="1px solid #21262d"
+            bg="surface"
+            border="1px solid"
+            borderColor="border"
             borderRadius="md"
             p={6}
-            _hover={{ borderColor: '#79c0ff' }}
+            _hover={{ borderColor: 'accent' }}
             transition="border-color 0.2s"
           >
             <HStack justify="space-between" mb={1}>
-              <Text fontWeight={600} color="#e6edf3" fontSize="md">
+              <Text fontWeight={600} color="text" fontSize="md">
                 {item.title}
               </Text>
-              <Text fontFamily="mono" fontSize="xs" color="#6e7681">
+              <Text fontFamily="mono" fontSize="xs" color="dim">
                 {item.period}
               </Text>
             </HStack>
-            <Text fontSize="sm" color="#79c0ff" fontFamily="mono" mb={3}>
+            <Text fontSize="sm" color="accent" fontFamily="mono" mb={3}>
               @ {item.org}
             </Text>
-            <Text fontSize="sm" color="#8b949e" lineHeight="1.7" mb={3}>
+            <Text fontSize="sm" color="muted" lineHeight="1.7" mb={3}>
               {item.desc}
             </Text>
             <Wrap spacing={2}>
@@ -58,10 +59,11 @@ export default function Experience() {
                   <Box
                     px={2}
                     py={1}
-                    border="1px solid #30363d"
+                    border="1px solid"
+                    borderColor="borderStrong"
                     borderRadius="md"
                     fontSize="xs"
-                    color="#8b949e"
+                    color="muted"
                     fontFamily="mono"
                   >
                     {tag}

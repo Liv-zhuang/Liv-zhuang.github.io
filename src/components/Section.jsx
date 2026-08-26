@@ -5,9 +5,9 @@ export default function Section({ id, children }) {
     <Box
       as="section"
       id={id}
-      maxW="900px"
+      maxW="1200px"
       mx="auto"
-      px={{ base: 6, md: 8 }}
+      px={{ base: 6, md: 12 }}
       py={{ base: 16, md: 24 }}
     >
       {children}

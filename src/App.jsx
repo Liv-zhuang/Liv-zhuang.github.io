@@ -13,7 +13,7 @@ export default function App() {
   const { t } = useTranslation()
 
   return (
-    <Box bg="#0d1117" minH="100vh">
+    <Box id="top" bg="appBg" minH="100vh">
       <NavBar />
       <Box pt="64px">
         <Hero />
@@ -23,8 +23,8 @@ export default function App() {
         <Track />
         <Value />
         <Contact />
-        <Box borderTop="1px solid #21262d" textAlign="center" py={8}>
-          <Text fontFamily="mono" fontSize="xs" color="#30363d">
+        <Box borderTop="1px solid" borderColor="border" textAlign="center" py={8}>
+          <Text fontFamily="mono" fontSize="xs" color="dim">
             {t('footer.text')}
           </Text>
         </Box>

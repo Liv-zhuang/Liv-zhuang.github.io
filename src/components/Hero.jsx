@@ -7,12 +7,15 @@ import {
   Link,
   Stack,
   Text,
+  VStack,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa6'
 import { useTranslation } from 'react-i18next'
 
 export default function Hero() {
   const { t } = useTranslation()
+  const ringShadow = useColorModeValue('0 0 0 4px #d0d7de', '0 0 0 4px #21262d')
 
   return (
     <Box
@@ -21,10 +24,10 @@ export default function Hero() {
       minH="60vh"
       display="flex"
       alignItems="center"
-      px={{ base: 6, md: 8 }}
+      px={{ base: 6, md: 12 }}
     >
       <Container
-        maxW="900px"
+        maxW="1200px"
         mx="auto"
         w="100%"
         display="flex"
@@ -37,17 +40,23 @@ export default function Hero() {
           <Text
             fontSize={{ base: '3xl', md: '4xl' }}
             fontWeight={700}
-            color="#e6edf3"
+            color="text"
             lineHeight={1.2}
           >
             {t('hero.name')}
           </Text>
-          <Text fontSize={{ base: 'md', md: 'lg' }} color="#8b949e" fontWeight={500}>
+          <Text fontSize={{ base: 'md', md: 'lg' }} color="muted" fontWeight={500}>
             {t('hero.title')}
           </Text>
+
+          <VStack align="start" spacing={1} mt={2} fontFamily="mono" fontSize="sm" color="dim">
+            <Text as="span">{t('hero.education')}</Text>
+            <Text as="span">{t('hero.experience')}</Text>
+          </VStack>
+
           <Stack as="ul" listStyleType="none" spacing={1} mt={2}>
             {t('hero.subtitles', { returnObjects: true }).map((item, i) => (
-              <Text as="li" key={i} fontSize="sm" color="#6e7681" fontFamily="mono">
+              <Text as="li" key={i} fontSize="sm" color="muted" fontFamily="mono">
                 {item}
               </Text>
             ))}
@@ -60,8 +69,9 @@ export default function Hero() {
             overflow="hidden"
             w={{ base: '120px', md: '160px' }}
             h={{ base: '120px', md: '160px' }}
-            border="2px solid #30363d"
-            boxShadow="0 0 0 4px #21262d"
+            border="2px solid"
+            borderColor="borderStrong"
+            boxShadow={ringShadow}
           >
             <Image
               src="/avatar.jpg"
@@ -77,7 +87,7 @@ export default function Hero() {
                 aria-label="LinkedIn"
                 icon={<FaLinkedin />}
                 variant="ghost"
-                color="#8b949e"
+                color="muted"
                 _hover={{ color: '#0A66C2', bg: 'whiteAlpha.50' }}
                 size="sm"
               />
@@ -87,8 +97,8 @@ export default function Hero() {
                 aria-label="GitHub"
                 icon={<FaGithub />}
                 variant="ghost"
-                color="#8b949e"
-                _hover={{ color: '#e6edf3', bg: 'whiteAlpha.50' }}
+                color="muted"
+                _hover={{ color: 'text', bg: 'whiteAlpha.50' }}
                 size="sm"
               />
             </Link>
@@ -97,8 +107,8 @@ export default function Hero() {
                 aria-label="Email"
                 icon={<FaEnvelope />}
                 variant="ghost"
-                color="#8b949e"
-                _hover={{ color: '#79c0ff', bg: 'whiteAlpha.50' }}
+                color="muted"
+                _hover={{ color: 'accent', bg: 'whiteAlpha.50' }}
                 size="sm"
               />
             </Link>

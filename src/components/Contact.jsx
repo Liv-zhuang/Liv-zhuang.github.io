@@ -20,14 +20,14 @@ export default function Contact() {
       label: 'Email',
       value: t('contact.email'),
       href: `mailto:${t('contact.email')}`,
-      color: '#79c0ff',
+      color: 'accent',
     },
     {
       icon: FaWeixin,
       label: t('contact.wechatLabel'),
       value: t('contact.wechat'),
       href: undefined,
-      color: '#2aae67',
+      color: 'green',
     },
     {
       icon: FaLinkedin,
@@ -43,14 +43,14 @@ export default function Contact() {
       <Text
         fontFamily="mono"
         fontSize="xs"
-        color="#f0925e"
+        color="headerOrange"
         mb={3}
         letterSpacing="widest"
       >
         ## {t('contact.title')}
       </Text>
-      <Divider borderColor="#21262d" mb={4} />
-      <Text fontSize="sm" color="#6e7681" mb={10} fontFamily="mono">
+      <Divider borderColor="border" mb={4} />
+      <Text fontSize="sm" color="dim" mb={10} fontFamily="mono">
         {t('contact.subtitle')}
       </Text>
 
@@ -60,8 +60,9 @@ export default function Contact() {
             key={item.label}
             spacing={4}
             p={4}
-            bg="#161b22"
-            border="1px solid #21262d"
+            bg="surface"
+            border="1px solid"
+            borderColor="border"
             borderRadius="md"
             w="100%"
             maxW="480px"
@@ -70,21 +71,21 @@ export default function Contact() {
           >
             <Icon as={item.icon} color={item.color} boxSize={5} />
             <Box>
-              <Text fontSize="xs" color="#6e7681" fontFamily="mono">
+              <Text fontSize="xs" color="dim" fontFamily="mono">
                 {item.label}
               </Text>
               {item.href ? (
                 <Link
                   href={item.href}
                   isExternal={item.href.startsWith('http')}
-                  color="#e6edf3"
+                  color="text"
                   fontSize="sm"
                   _hover={{ color: item.color }}
                 >
                   {item.value}
                 </Link>
               ) : (
-                <Text fontSize="sm" color="#e6edf3" fontFamily="mono">
+                <Text fontSize="sm" color="text" fontFamily="mono">
                   {item.value}
                 </Text>
               )}

@@ -1,34 +1,20 @@
-import { Box, Text } from '@chakra-ui/react'
-import { useTranslation } from 'react-i18next'
-import NavBar from './components/NavBar'
+import { Box } from '@chakra-ui/react'
+import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import About from './components/About'
-import Focus from './components/Focus'
-import Experience from './components/Experience'
+import Skills from './components/Skills'
 import Track from './components/Track'
-import Value from './components/Value'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 export default function App() {
-  const { t } = useTranslation()
-
   return (
-    <Box id="top" bg="appBg" minH="100vh">
-      <NavBar />
-      <Box pt="64px">
-        <Hero />
-        <About />
-        <Focus />
-        <Experience />
-        <Track />
-        <Value />
-        <Contact />
-        <Box borderTop="1px solid" borderColor="border" textAlign="center" py={8}>
-          <Text fontFamily="mono" fontSize="sm" color="dim">
-            {t('footer.text')}
-          </Text>
-        </Box>
-      </Box>
+    <Box id="top" minH="100vh">
+      <Navbar />
+      <Hero />
+      <Skills />
+      <Track />
+      <Contact />
+      <Footer />
     </Box>
   )
 }

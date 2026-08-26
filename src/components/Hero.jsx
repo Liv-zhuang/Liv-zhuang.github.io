@@ -18,10 +18,7 @@ import { FaBriefcase, FaGraduationCap, FaEnvelope, FaGithub, FaLinkedin, FaCheck
 import { useTranslation } from 'react-i18next'
 import SocialButton from './SocialButton'
 
-const MotionBox = motion(Box)
 const MotionText = motion(Text)
-
-const TICKER_ROW_PX = 24
 
 const copyText = async (text) => {
   try {
@@ -60,13 +57,8 @@ export default function Hero() {
     'linear(112deg, #f0854e, #d76ad4, #8aa2f2)',
   )
 
-  const rotating = t('hero.rotating', { returnObjects: true })
   const research = t('hero.research', { returnObjects: true })
   const education = t('hero.education', { returnObjects: true })
-  const tickerCount = Math.max(rotating.length, 1)
-  const tickerY = [...rotating.map((_, i) => -TICKER_ROW_PX * i), 0]
-  const tickerTimes = tickerY.map((_, i) => (i / tickerCount) * 0.9)
-  const tickerDuration = (tickerCount * 4) / 3
 
   const socials = [
     { href: 'https://www.linkedin.com/in/liv-zhuang-a77837348/', icon: FaLinkedin, label: 'LinkedIn', color: '#0A66C2' },
@@ -171,41 +163,6 @@ export default function Hero() {
               </MotionText>
             </MotionText>
 
-            <HStack
-              spacing={[1, 2]}
-              mb={[2, 3, 4]}
-              justify={['center', 'center', 'flex-start']}
-              flexWrap="wrap"
-              w="full"
-            >
-              <Text color="prompt" fontFamily="mono" fontWeight="700" fontSize={['xs', 'sm']}>
-                $
-              </Text>
-              <Text fontSize={['xs', 'sm']} color={textColor}>
-                {t('hero.philosophyPrefix')}
-              </Text>
-              <Box h={`${TICKER_ROW_PX}px`} overflow="hidden">
-                <MotionBox
-                  animate={{ y: tickerY }}
-                  transition={{ duration: tickerDuration, times: tickerTimes, repeat: Infinity, ease: 'linear' }}
-                >
-                  {rotating.map((text, index) => (
-                    <Text
-                      key={index}
-                      h={`${TICKER_ROW_PX}px`}
-                      lineHeight={`${TICKER_ROW_PX}px`}
-                      color="accent"
-                      fontWeight="semibold"
-                      fontSize={['xs', 'sm']}
-                      fontFamily="mono"
-                    >
-                      {text}
-                    </Text>
-                  ))}
-                </MotionBox>
-              </Box>
-            </HStack>
-
             <Box w="full" h="1px" bgGradient="linear(to-r, var(--border-strong), transparent)" />
 
             <SimpleGrid columns={[1, 1, 2]} spacing={[3, 3, 4]} w="full">
@@ -224,43 +181,58 @@ export default function Hero() {
                     {t('hero.researchTitle')}
                   </Text>
                 </HStack>
-                {research.map((item, index) => (
-                  <HStack
-                    key={index}
-                    spacing={2.5}
-                    p={2}
-                    minH="46px"
-                    align="center"
-                    borderRadius="10px"
-                    border="1px solid"
-                    borderColor="transparent"
-                    transition="background 0.2s ease, border-color 0.2s ease"
-                    _hover={{ bg: 'var(--hover-color)', borderColor: 'var(--border-color)' }}
-                    w="full"
-                  >
-                    <Flex
-                      w="32px"
-                      h="32px"
-                      borderRadius="8px"
-                      bg="var(--elevated-bg)"
-                      border="1px solid"
-                      borderColor="var(--border-color)"
+                {research.map((item, index) => {
+                  const row = (
+                    <HStack
+                      spacing={2.5}
+                      p={2}
+                      minH="46px"
                       align="center"
-                      justify="center"
-                      flexShrink={0}
+                      borderRadius="10px"
+                      border="1px solid"
+                      borderColor="transparent"
+                      transition="background 0.2s ease, border-color 0.2s ease"
+                      _hover={{ bg: 'var(--hover-color)', borderColor: 'var(--border-color)' }}
+                      w="full"
                     >
-                      <Box as={FaBriefcase} color="accent" fontSize="sm" />
-                    </Flex>
-                    <VStack align="start" spacing={0} flex={1} minW={0}>
-                      <Text fontSize={['xs', 'sm']} fontWeight="medium" lineHeight="short" color={headingColor}>
-                        {item.title}
-                      </Text>
-                      <Text fontSize="xs" color={textColor} lineHeight="short" noOfLines={1}>
-                        {item.sub}
-                      </Text>
-                    </VStack>
-                  </HStack>
-                ))}
+                      <Flex
+                        w="32px"
+                        h="32px"
+                        borderRadius="8px"
+                        bg="var(--elevated-bg)"
+                        border="1px solid"
+                        borderColor="var(--border-color)"
+                        align="center"
+                        justify="center"
+                        flexShrink={0}
+                      >
+                        <Box as={FaBriefcase} color="accent" fontSize="sm" />
+                      </Flex>
+                      <VStack align="start" spacing={0} flex={1} minW={0}>
+                        <Text fontSize={['xs', 'sm']} fontWeight="medium" lineHeight="short" color={headingColor}>
+                          {item.title}
+                        </Text>
+                        <Text fontSize="xs" color={textColor} lineHeight="short" noOfLines={1}>
+                          {item.sub}
+                        </Text>
+                      </VStack>
+                      {item.years && (
+                        <Text fontFamily="mono" fontSize="2xs" color="textMuted" flexShrink={0}>
+                          {item.years}
+                        </Text>
+                      )}
+                    </HStack>
+                  )
+                  return item.href ? (
+                    <Link key={index} href={item.href} isExternal w="full" _hover={{ textDecoration: 'none' }}>
+                      {row}
+                    </Link>
+                  ) : (
+                    <Box key={index} w="full">
+                      {row}
+                    </Box>
+                  )
+                })}
               </VStack>
 
               <VStack align="start" spacing={2}>
@@ -333,6 +305,9 @@ export default function Hero() {
                 borderColor="accent"
                 pl={3}
               >
+                <Box as="span" bgGradient={nameGradient} bgClip="text" fontWeight={600}>
+                  {t('hero.taglineLabel')}
+                </Box>
                 {t('hero.tagline')}
               </Text>
               <VStack spacing={1.5} align={['center', 'center', 'flex-start']} flexShrink={0}>

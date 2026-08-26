@@ -12,23 +12,17 @@ const resources = {
       hero: {
         greeting: '你好，我是',
         name: 'Liv Zhuang',
-        philosophyPrefix: '有时候我是',
-        rotating: [
-          '猎头 · 大模型基模 & 具身智能',
-          '信息沟通者，好处坏处讲清楚',
-          'timing 不对就保持联系',
-          '候选人信息严格保密',
-        ],
-        researchTitle: '实习与研究经历',
+        researchTitle: '实习与工作经历',
         educationTitle: '教育经历',
         research: [
-          { title: '睿联技术（Reolink）', sub: '技术岗位社会招聘 · 智能硬件出海' },
-          { title: '顺丰速运', sub: '校园招聘 · 人才培养 · 批量交付' },
-          { title: '独立猎头', sub: '大模型 & 具身智能 · 高端人才连接' },
+          { title: '睿联技术（Reolink）', sub: '校招+社招，覆盖技术研发职能', years: '2024.07 — 2025.02', href: 'https://reolink.com/' },
+          { title: '顺丰速运', sub: '校招+社招+人才培养（校招生+实习生）', years: '2025.04 — 2026.02' },
+          { title: '独立猎头', sub: '大模型 & 具身智能 · 高端人才连接', years: '2025 — 至今' },
         ],
         education: [{ course: '人力资源管理 本科', institution: '韶关学院', year: '2021 — 2025' }],
+        taglineLabel: '风格：',
         tagline:
-          '换工作是低频高风险决策。我喜欢有话直说——好处坏处讲清楚，timing 不对就保持联系，候选人信息严格保密。',
+          '我喜欢有话直说，岗位优劣实都讲清楚；timing不对就保持联系；候选人信息严格保密。',
       },
       skills: {
         title: '专注领域',
@@ -51,10 +45,10 @@ const resources = {
         },
         companies: {
           items: [
-            '中大厂：腾讯 / 字节 / 阿里 / 美团 / 快手 / 小红书 / 京东',
-            '明星大模型初创：DeepSeek / 智谱 / Kimi / 阶跃 / MiniMax',
-            '具身初创：自变量 / 智元 / 千寻 / 银河 / 星海图 / 苏度 / 极佳 / 流形 / 星动纪元',
-            '未 PR 企业···',
+            { label: '中大厂', value: '腾讯 / 字节 / 阿里 / 美团 / 快手 / 小红书 / 京东' },
+            { label: '明星大模型初创', value: 'DeepSeek / 智谱 / Kimi / 阶跃 / MiniMax' },
+            { label: '具身初创', value: '自变量 / 智元 / 千寻 / 银河 / 星海图 / 苏度 / 极佳 / 流形 / 星动纪元' },
+            { label: '未 PR 企业', value: '···' },
           ],
         },
       },
@@ -102,23 +96,17 @@ const resources = {
       hero: {
         greeting: "Hi, I'm",
         name: 'Liv Zhuang',
-        philosophyPrefix: 'sometimes I',
-        rotating: [
-          'a headhunter in Foundation Models & Embodied AI',
-          'honest about pros and cons',
-          "still in touch when timing's off",
-          'strictly confidential with candidate info',
-        ],
-        researchTitle: 'Research & Internships',
+        researchTitle: 'Internships & Work',
         educationTitle: 'Education',
         research: [
-          { title: 'Reolink', sub: 'Technical recruiting · Smart hardware' },
-          { title: 'SF Express', sub: 'Campus recruiting · Talent development' },
-          { title: 'Independent Headhunter', sub: 'LLM & Embodied AI · Executive search' },
+          { title: 'Reolink', sub: 'Campus + social recruiting, tech R&D roles', years: '2024.07 — 2025.02', href: 'https://reolink.com/' },
+          { title: 'SF Express', sub: 'Campus + social recruiting & talent programs', years: '2025.04 — 2026.02' },
+          { title: 'Independent Headhunter', sub: 'LLM & Embodied AI · Executive search', years: '2025 — Present' },
         ],
         education: [{ course: 'B.A. Human Resource Management', institution: 'Shaoguan University', year: '2021 — 2025' }],
+        taglineLabel: 'Style: ',
         tagline:
-          "Job changes are high-stakes, low-frequency decisions. I like to be direct — lay out the pros and cons, stay in touch when timing is off, and keep candidate information strictly confidential.",
+          "I like to be direct — the pros and cons of every role; stay in touch when timing isn't right; candidate info strictly confidential.",
       },
       skills: {
         title: 'Focus Areas',
@@ -141,10 +129,10 @@ const resources = {
         },
         companies: {
           items: [
-            'Large tech: Tencent / ByteDance / Alibaba / Meituan / Kuaishou / Xiaohongshu / JD',
-            'Top LLM startups: DeepSeek / Zhipu / Kimi / StepFun / MiniMax',
-            'Embodied startups: Zibian / Zhiyuan / Qianxun / Yinhe / Xinghaitu / Sudu / Jijia / Liuxing / Xingdong',
-            'Stealth companies···',
+            { label: 'Large tech', value: 'Tencent / ByteDance / Alibaba / Meituan / Kuaishou / Xiaohongshu / JD' },
+            { label: 'Top LLM startups', value: 'DeepSeek / Zhipu / Kimi / StepFun / MiniMax' },
+            { label: 'Embodied startups', value: 'Zibian / Zhiyuan / Qianxun / Yinhe / Xinghaitu / Sudu / Jijia / Liuxing / Xingdong' },
+            { label: 'Stealth', value: 'companies···' },
           ],
         },
       },

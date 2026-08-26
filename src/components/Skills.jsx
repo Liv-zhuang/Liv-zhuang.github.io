@@ -1,8 +1,8 @@
-import { Box, Container, Flex, HStack, SimpleGrid, Stack, Text } from '@chakra-ui/react'
+import { Box, Container, Flex, HStack, SimpleGrid, Stack, Text, useColorModeValue } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import SectionHeading from './SectionHeading'
 
-function GroupCard({ label, items }) {
+function GroupCard({ label, items, gradient }) {
   return (
     <Box
       bg="var(--card-bg)"
@@ -16,7 +16,16 @@ function GroupCard({ label, items }) {
     >
       <HStack spacing={2} align="center" mb={3}>
         <Box w="3px" h="12px" bg="accent" borderRadius="full" flexShrink={0} />
-        <Text as="h3" fontFamily="mono" color="textMuted" textTransform="uppercase" letterSpacing="wider" fontSize="xs" fontWeight={600}>
+        <Text
+          as="h3"
+          fontFamily="mono"
+          textTransform="uppercase"
+          letterSpacing="wider"
+          fontSize="xs"
+          fontWeight={600}
+          bgGradient={gradient}
+          bgClip="text"
+        >
           {label}
         </Text>
       </HStack>
@@ -35,23 +44,28 @@ function GroupCard({ label, items }) {
 }
 
 export default function Skills() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const companies = t('skills.companies.items', { returnObjects: true })
+  const colon = i18n.language.startsWith('zh') ? '：' : ': '
+  const gradient = useColorModeValue(
+    'linear(112deg, #ef6a38, #c44fbf, #3a5fd9)',
+    'linear(112deg, #f0854e, #d76ad4, #8aa2f2)',
+  )
 
   return (
-    <Box w="full" py={[4, 6]} >
+    <Box w="full" py={[4, 6]}>
       <Container maxW={['full', 'full', '7xl']} px={[2, 4, 8]}>
         <SectionHeading title={t('skills.title')} />
 
         <SimpleGrid columns={[1, 1, 2]} spacing={[3, 4]}>
-          <GroupCard label={t('skills.llm.label')} items={t('skills.llm.items', { returnObjects: true })} />
-          <GroupCard label={t('skills.embodied.label')} items={t('skills.embodied.items', { returnObjects: true })} />
+          <GroupCard gradient={gradient} label={t('skills.llm.label')} items={t('skills.llm.items', { returnObjects: true })} />
+          <GroupCard gradient={gradient} label={t('skills.embodied.label')} items={t('skills.embodied.items', { returnObjects: true })} />
         </SimpleGrid>
 
         <Flex gap={2.5} flexWrap="wrap" align="flex-start" mt={[3, 4]}>
-          {companies.map((name) => (
+          {companies.map((item, i) => (
             <HStack
-              key={name}
+              key={i}
               spacing={2}
               px={3}
               py={2}
@@ -64,7 +78,11 @@ export default function Skills() {
               _hover={{ transform: 'translateY(-1px)', borderColor: 'var(--accent-color)', boxShadow: 'var(--shadow-lift)' }}
             >
               <Text fontSize="sm" fontFamily="mono" fontWeight="semibold" color="textPrimary" lineHeight="1.4">
-                {name}
+                <Box as="span" bgGradient={gradient} bgClip="text">
+                  {item.label}
+                </Box>
+                {colon}
+                {item.value}
               </Text>
             </HStack>
           ))}

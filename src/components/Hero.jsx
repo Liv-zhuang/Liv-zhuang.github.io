@@ -219,15 +219,19 @@ export default function Hero() {
                         </Flex>
                         <VStack align="start" spacing={0} flex={1} minW={0}>
                           <Text fontSize={['xs', 'sm']} fontWeight="medium" lineHeight="short" color={headingColor}>
-                            {before}
-                            {hasLink && (
-                              <Link href={item.href} isExternal _hover={{ textDecoration: 'underline' }}>
-                                <Box as="span" bgGradient={nameGradient} bgClip="text" fontWeight={600}>
-                                  {item.linkText}
-                                </Box>
-                              </Link>
+                            {hasLink ? (
+                              <>
+                                {before}
+                                <Link href={item.href} isExternal _hover={{ textDecoration: 'underline' }}>
+                                  <Box as="span" bgGradient={nameGradient} bgClip="text" fontWeight={600}>
+                                    {item.linkText}
+                                  </Box>
+                                </Link>
+                                {after}
+                              </>
+                            ) : (
+                              item.title
                             )}
-                            {after}
                           </Text>
                           <Text fontSize="xs" color={textColor} lineHeight="short" noOfLines={1}>
                             {item.sub}

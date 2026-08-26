@@ -22,7 +22,7 @@ const resources = {
         education: [{ course: '人力资源管理 本科', institution: '韶关学院', year: '2021 — 2025', logo: '/logos/sgu.png' }],
         taglineLabel: '风格：',
         tagline:
-          '有话直说，优劣势讲清楚；timing不对，保持联系；候选人信息严格保密。',
+          '有话直说，优劣势讲清楚；timing不对，保持联系；信息严格保密。',
       },
       skills: {
         title: '专注领域',
@@ -113,7 +113,7 @@ const resources = {
         education: [{ course: 'B.A. Human Resource Management', institution: 'Shaoguan University', year: '2021 — 2025', logo: '/logos/sgu.png' }],
         taglineLabel: 'Style: ',
         tagline:
-          "Speak straight — be clear about the pros and cons; stay in touch when timing isn't right; candidate info strictly confidential.",
+          "Speak straight — be clear about pros and cons; stay in touch when timing is off; information strictly confidential.",
       },
       skills: {
         title: 'Focus Areas',

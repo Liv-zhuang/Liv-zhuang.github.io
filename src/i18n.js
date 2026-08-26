@@ -17,12 +17,12 @@ const resources = {
         research: [
           { title: '睿联技术（Reolink）', sub: '校招+社招，覆盖技术研发职能', years: '2024.07 — 2025.02', href: 'https://reolink.com/', logo: '/logos/reolink.png' },
           { title: '顺丰速运', sub: '校招+社招+人才培养（校招生+实习生）', years: '2025.04 — 2026.02', logo: '/logos/sf.ico' },
-          { title: '独立猎头', sub: '大模型 & 具身智能 · 高端人才连接', years: '2025 — 至今' },
+          { title: '独立猎头', sub: '大模型 & 具身智能 · 高端人才连接', years: '2026.02 — 至今' },
         ],
         education: [{ course: '人力资源管理 本科', institution: '韶关学院', year: '2021 — 2025', logo: '/logos/sgu.png' }],
         taglineLabel: '风格：',
         tagline:
-          '我喜欢有话直说，岗位优劣实都讲清楚；timing不对就保持联系；候选人信息严格保密。',
+          '我喜欢有话直说，岗位优劣势讲清楚；timing不对就保持联系；候选人信息严格保密。',
       },
       skills: {
         title: '专注领域',

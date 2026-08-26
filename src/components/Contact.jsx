@@ -42,7 +42,7 @@ export default function Contact() {
     <Section id="contact">
       <Text
         fontFamily="mono"
-        fontSize="xs"
+        fontSize="sm"
         color="headerOrange"
         mb={3}
         letterSpacing="widest"
@@ -50,7 +50,7 @@ export default function Contact() {
         ## {t('contact.title')}
       </Text>
       <Divider borderColor="border" mb={4} />
-      <Text fontSize="sm" color="dim" mb={10} fontFamily="mono">
+      <Text fontSize="md" color="dim" mb={10} fontFamily="mono">
         {t('contact.subtitle')}
       </Text>
 
@@ -71,7 +71,7 @@ export default function Contact() {
           >
             <Icon as={item.icon} color={item.color} boxSize={5} />
             <Box>
-              <Text fontSize="xs" color="dim" fontFamily="mono">
+              <Text fontSize="sm" color="dim" fontFamily="mono">
                 {item.label}
               </Text>
               {item.href ? (
@@ -79,13 +79,13 @@ export default function Contact() {
                   href={item.href}
                   isExternal={item.href.startsWith('http')}
                   color="text"
-                  fontSize="sm"
+                  fontSize="md"
                   _hover={{ color: item.color }}
                 >
                   {item.value}
                 </Link>
               ) : (
-                <Text fontSize="sm" color="text" fontFamily="mono">
+                <Text fontSize="md" color="text" fontFamily="mono">
                   {item.value}
                 </Text>
               )}

@@ -61,34 +61,31 @@ const resources = {
       },
       experience: {
         title: '经历',
-        items: [
+        internshipTitle: '实习与研究经历',
+        educationTitle: '教育经历',
+        selfIntro: '',
+        internships: [
           {
-            period: '2021 – 2025',
+            title: '睿联技术（Reolink）',
+            sub: '技术岗位社会招聘 · 智能硬件出海',
+            years: '2023 — 2024',
+          },
+          {
+            title: '顺丰速运',
+            sub: '校园招聘 · 人才培养 · 批量交付',
+            years: '2024 — 2025',
+          },
+          {
+            title: '独立猎头',
+            sub: '大模型 & 具身智能 · 高端人才连接',
+            years: '2025 — 至今',
+          },
+        ],
+        education: [
+          {
             title: '人力资源管理 本科',
             org: '韶关学院',
-            desc: '系统学习人力资源管理理论与实践，核心课程包括招聘与配置、薪酬管理、劳动关系等。',
-            tags: ['人力资源管理', '招聘与配置', '劳动关系'],
-          },
-          {
-            period: '2023 – 2024',
-            title: '招聘专员',
-            org: '睿联技术（Reolink）',
-            desc: '负责技术岗位社会招聘，覆盖硬件、软件、供应链等方向。积累了在智能硬件出海企业中建立候选人信任、跨文化团队协作的实战经验。',
-            tags: ['社会招聘', '智能硬件', '出海'],
-          },
-          {
-            period: '2024 – 2025',
-            title: '招聘专员',
-            org: '顺丰速运',
-            desc: '承担校园招聘与人才培养项目，高压节奏下完成批量交付，构建候选人管理体系，推动招募到入职转化的全链路优化。',
-            tags: ['校园招聘', '人才培养', '批量交付'],
-          },
-          {
-            period: '2025 – 至今',
-            title: '猎头 · 大模型基模 & 具身智能',
-            org: '独立',
-            desc: '专注大模型与具身智能领域高端人才连接。结合候选人核心诉求推荐合适机会，好处坏处讲清楚，候选人信息严格保密。',
-            tags: ['大模型', '具身智能', '高端猎头'],
+            years: '2021 — 2025',
           },
         ],
       },
@@ -125,6 +122,7 @@ const resources = {
         title: '联系方式（感谢看到这里 hh）',
         subtitle: '如果你在做有意思的事，或者只是想聊聊方向和外面机会，欢迎联系。',
         email: 'zhuang9729@gmail.com',
+        emailLabel: '邮箱',
         wechat: '19874502075',
         wechatLabel: '微信',
       },
@@ -192,34 +190,31 @@ const resources = {
       },
       experience: {
         title: 'Experience',
-        items: [
+        internshipTitle: 'Internship & Research',
+        educationTitle: 'Education',
+        selfIntro: '',
+        internships: [
           {
-            period: '2021 – 2025',
+            title: 'Reolink',
+            sub: 'Technical recruiting · Smart hardware',
+            years: '2023 — 2024',
+          },
+          {
+            title: 'SF Express',
+            sub: 'Campus recruiting · Talent development',
+            years: '2024 — 2025',
+          },
+          {
+            title: 'Independent Headhunter',
+            sub: 'LLM & Embodied AI · Executive search',
+            years: '2025 — Present',
+          },
+        ],
+        education: [
+          {
             title: 'B.A. Human Resource Management',
             org: 'Shaoguan University',
-            desc: 'Core coursework in recruitment & staffing, compensation management, and labor relations.',
-            tags: ['HRM', 'Recruitment', 'Labor Relations'],
-          },
-          {
-            period: '2023 – 2024',
-            title: 'Recruiter',
-            org: 'Reolink (睿联技术)',
-            desc: 'Social recruiting for technical roles across hardware, software, and supply chain. Built cross-cultural hiring experience at a fast-growing smart hardware company expanding internationally.',
-            tags: ['Social Recruiting', 'Smart Hardware', 'Overseas'],
-          },
-          {
-            period: '2024 – 2025',
-            title: 'Recruiter',
-            org: 'SF Express (顺丰速运)',
-            desc: 'Led campus recruiting and talent development programs under high-volume pressure. Built end-to-end candidate management systems to improve offer conversion.',
-            tags: ['Campus Recruiting', 'Talent Development', 'High-volume'],
-          },
-          {
-            period: '2025 – Present',
-            title: 'Headhunter · Foundation Models & Embodied AI',
-            org: 'Independent',
-            desc: "Senior talent placement in LLM and Embodied AI. Match based on candidate goals, not just keywords. Honest about every opportunity's pros and cons. Candidate info strictly confidential.",
-            tags: ['LLM', 'Embodied AI', 'Executive Search'],
+            years: '2021 — 2025',
           },
         ],
       },
@@ -256,6 +251,7 @@ const resources = {
         title: 'Get in Touch (thanks for scrolling this far hh)',
         subtitle: "If you're working on something interesting, or just want to talk about opportunities — feel free to reach out.",
         email: 'zhuang9729@gmail.com',
+        emailLabel: 'Email',
         wechat: '19874502075',
         wechatLabel: 'WeChat',
       },

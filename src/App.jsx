@@ -24,7 +24,7 @@ export default function App() {
         <Value />
         <Contact />
         <Box borderTop="1px solid" borderColor="border" textAlign="center" py={8}>
-          <Text fontFamily="mono" fontSize="xs" color="dim">
+          <Text fontFamily="mono" fontSize="sm" color="dim">
             {t('footer.text')}
           </Text>
         </Box>

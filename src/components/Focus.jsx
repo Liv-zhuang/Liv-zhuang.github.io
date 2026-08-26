@@ -6,10 +6,9 @@ function ItemList({ items }) {
   return (
     <Stack align="start" spacing={3}>
       {items.map((item, i) => (
-        <Text key={i} fontSize="sm" color="muted" lineHeight="1.7">
+        <Text key={i} fontSize="md" color="muted" lineHeight="1.8">
           <Text as="span" color="dim" mr={2} fontFamily="mono">
-            â€”
-          </Text>
+            ï¿?          </Text>
           {item}
         </Text>
       ))}
@@ -28,7 +27,7 @@ export default function Focus() {
     <Section id="focus">
       <Text
         fontFamily="mono"
-        fontSize="xs"
+        fontSize="sm"
         color="headerOrange"
         mb={3}
         letterSpacing="widest"
@@ -51,7 +50,7 @@ export default function Focus() {
           >
             <Text
               fontFamily="mono"
-              fontSize="xs"
+              fontSize="sm"
               color="dim"
               letterSpacing="widest"
               textTransform="uppercase"
@@ -75,7 +74,7 @@ export default function Focus() {
       >
         <Text
           fontFamily="mono"
-          fontSize="xs"
+          fontSize="sm"
           color="dim"
           letterSpacing="widest"
           textTransform="uppercase"
@@ -88,3 +87,5 @@ export default function Focus() {
     </Section>
   )
 }
+
+

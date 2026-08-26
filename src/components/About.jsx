@@ -9,7 +9,7 @@ export default function About() {
     <Section id="about">
       <Text
         fontFamily="mono"
-        fontSize="xs"
+        fontSize="sm"
         color="headerOrange"
         mb={3}
         letterSpacing="widest"
@@ -17,13 +17,13 @@ export default function About() {
         ## {t('about.title')}
       </Text>
       <Divider borderColor="border" mb={8} />
-      <Text fontSize="sm" color="muted" lineHeight="1.8" mb={4}>
+      <Text fontSize="md" color="muted" lineHeight="1.9" mb={4}>
         {t('about.p1')}
       </Text>
-      <Text fontSize="sm" color="muted" lineHeight="1.8" mb={4}>
+      <Text fontSize="md" color="muted" lineHeight="1.9" mb={4}>
         {t('about.p2')}
       </Text>
-      <Text fontSize="sm" color="muted" lineHeight="1.8">
+      <Text fontSize="md" color="muted" lineHeight="1.9">
         {t('about.p3')}
       </Text>
     </Section>

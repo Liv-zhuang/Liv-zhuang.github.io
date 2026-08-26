@@ -74,13 +74,13 @@ export default function NavBar() {
           href="#top"
           onClick={goHome}
           fontFamily="mono"
-          fontSize="sm"
+          fontSize="lg"
           color="accent"
           letterSpacing="wider"
-          fontWeight={600}
+          fontWeight={700}
           _hover={{ opacity: 0.8 }}
         >
-          liv-zhuang
+          Liv Zhuang
         </Link>
 
         <HStack spacing={1} display={{ base: 'none', md: 'flex' }} align="center">
@@ -90,9 +90,9 @@ export default function NavBar() {
               as="a"
               href={link.href}
               variant="ghost"
-              size="sm"
+              size="md"
               color="muted"
-              fontSize="sm"
+              fontSize="md"
               _hover={{ color: 'text', bg: 'whiteAlpha.50' }}
             >
               {t(link.key)}
@@ -176,8 +176,8 @@ export default function NavBar() {
         <DrawerContent bg="surface" borderLeft="1px solid" borderColor="border">
           <DrawerCloseButton color="muted" />
           <DrawerHeader borderBottom="1px solid" borderColor="border">
-            <Text fontFamily="mono" fontSize="sm" color="accent">
-              liv-zhuang
+            <Text fontFamily="mono" fontSize="md" color="accent">
+              Liv Zhuang
             </Text>
           </DrawerHeader>
           <DrawerBody>

@@ -10,7 +10,7 @@ export default function Value() {
     <Section id="value">
       <Text
         fontFamily="mono"
-        fontSize="xs"
+        fontSize="sm"
         color="headerOrange"
         mb={3}
         letterSpacing="widest"
@@ -31,10 +31,10 @@ export default function Value() {
             _hover={{ borderColor: 'accent', transform: 'translateY(-2px)' }}
             transition="all 0.2s"
           >
-            <Text fontWeight={600} color="text" fontSize="sm" mb={2}>
+            <Text fontWeight={600} color="text" fontSize="md" mb={2}>
               {item.label}
             </Text>
-            <Text fontSize="xs" color="muted" lineHeight="1.7">
+            <Text fontSize="md" color="muted" lineHeight="1.7">
               {item.desc}
             </Text>
           </Box>

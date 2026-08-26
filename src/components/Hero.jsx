@@ -38,25 +38,25 @@ export default function Hero() {
       >
         <Stack align="start" spacing={3} flex={1}>
           <Text
-            fontSize={{ base: '3xl', md: '4xl' }}
+            fontSize={{ base: '4xl', md: '5xl' }}
             fontWeight={700}
             color="text"
             lineHeight={1.2}
           >
             {t('hero.name')}
           </Text>
-          <Text fontSize={{ base: 'md', md: 'lg' }} color="muted" fontWeight={500}>
+          <Text fontSize={{ base: 'lg', md: 'xl' }} color="muted" fontWeight={500}>
             {t('hero.title')}
           </Text>
 
-          <VStack align="start" spacing={1} mt={2} fontFamily="mono" fontSize="sm" color="dim">
+          <VStack align="start" spacing={1} mt={2} fontFamily="mono" fontSize="md" color="dim">
             <Text as="span">{t('hero.education')}</Text>
             <Text as="span">{t('hero.experience')}</Text>
           </VStack>
 
           <Stack as="ul" listStyleType="none" spacing={1} mt={2}>
             {t('hero.subtitles', { returnObjects: true }).map((item, i) => (
-              <Text as="li" key={i} fontSize="sm" color="muted" fontFamily="mono">
+              <Text as="li" key={i} fontSize="md" color="muted" fontFamily="mono">
                 {item}
               </Text>
             ))}

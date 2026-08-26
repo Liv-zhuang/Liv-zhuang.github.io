@@ -10,7 +10,7 @@ export default function Track() {
     <Section id="track">
       <Text
         fontFamily="mono"
-        fontSize="xs"
+        fontSize="sm"
         color="headerOrange"
         mb={3}
         letterSpacing="widest"
@@ -18,7 +18,7 @@ export default function Track() {
         ## {t('track.title')}
       </Text>
       <Divider borderColor="border" mb={4} />
-      <Text fontSize="sm" color="dim" mb={8} fontFamily="mono">
+      <Text fontSize="md" color="dim" mb={8} fontFamily="mono">
         {t('track.subtitle')}
       </Text>
 
@@ -34,29 +34,29 @@ export default function Track() {
             _hover={{ borderColor: 'accent', transform: 'translateY(-2px)' }}
             transition="all 0.2s"
           >
-            <Text fontFamily="mono" fontSize="xs" color="dim" mb={4} letterSpacing="widest">
+            <Text fontFamily="mono" fontSize="sm" color="dim" mb={4} letterSpacing="widest">
               {item.label}
             </Text>
             <HStack spacing={8} mb={4}>
               <VStack align="start" spacing={0}>
-                <Text fontSize="2xl" fontWeight={700} color="accent" fontFamily="mono">
+                <Text fontSize="3xl" fontWeight={700} color="accent" fontFamily="mono">
                   {item.cash}
                 </Text>
-                <Text fontSize="xs" color="dim">
+                <Text fontSize="sm" color="dim">
                   {t('track.cashLabel')}
                 </Text>
               </VStack>
               <VStack align="start" spacing={0}>
-                <Text fontSize="2xl" fontWeight={700} color="headerOrange" fontFamily="mono">
+                <Text fontSize="3xl" fontWeight={700} color="headerOrange" fontFamily="mono">
                   {item.total}
                 </Text>
-                <Text fontSize="xs" color="dim">
+                <Text fontSize="sm" color="dim">
                   {t('track.totalLabel')}
                 </Text>
               </VStack>
             </HStack>
             <Divider borderColor="border" mb={4} />
-            <Text fontSize="sm" color="muted" lineHeight="1.7">
+            <Text fontSize="md" color="muted" lineHeight="1.7">
               {item.desc}
             </Text>
           </Box>

@@ -79,8 +79,6 @@ export default function Hero() {
       bg={bg}
       py={[4, 5, 10]}
       mt={[2, 3, 4]}
-      borderBottom="1px solid"
-      borderColor="var(--border-color)"
     >
       <Container maxW={['full', 'full', '7xl']} px={[2, 4, 8]}>
         <Stack direction={['column', 'column', 'row']} spacing={[3, 4, 6]} align="center" justify="space-between">

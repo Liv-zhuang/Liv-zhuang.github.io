@@ -17,7 +17,7 @@ const resources = {
         research: [
           { title: '睿联技术（Reolink）', sub: '校招+社招，覆盖技术研发职能', years: '2024.07 — 2025.02', href: 'https://reolink.com/', logo: '/logos/reolink.png', linkText: 'Reolink' },
           { title: '顺丰速运', sub: '校招+社招+人才培养（校招生+实习生）', years: '2025.04 — 2026.02', logo: '/logos/sf.ico' },
-          { title: '独立猎头', sub: '大模型 & 具身智能 · 高端人才连接', years: '2026.02 — 至今' },
+          { title: '猎头', sub: '大模型 & 具身智能', years: '2026.02 — 至今' },
         ],
         education: [{ course: '人力资源管理 本科', institution: '韶关学院', year: '2021 — 2025', logo: '/logos/sgu.png' }],
         taglineLabel: '风格：',
@@ -57,17 +57,20 @@ const resources = {
         cases: [
           {
             label: 'Case A',
+            base: '+33%',
             cash: '+33%',
             total: '+100%',
             desc: '诉求：要资源做自己想做的事情（机器人）。结合方向判断与团队密度，匹配到最合适的具身初创。',
           },
           {
             label: 'Case B',
-            cash: '+60%',
-            total: '+150%',
+            base: '+146%',
+            cash: '+10%',
+            total: '+108%',
             desc: '诉求：赛道更换，入局新赛道，增加可能性。充分了解风险后主动决策，过程透明无信息差。',
           },
         ],
+        baseLabel: 'Base 涨幅',
         cashLabel: '现金涨幅',
         totalLabel: '总包涨幅',
       },
@@ -101,7 +104,7 @@ const resources = {
         research: [
           { title: 'Reolink', sub: 'Campus + social recruiting, tech R&D roles', years: '2024.07 — 2025.02', href: 'https://reolink.com/', logo: '/logos/reolink.png', linkText: 'Reolink' },
           { title: 'SF Express', sub: 'Campus + social recruiting & talent programs', years: '2025.04 — 2026.02', logo: '/logos/sf.ico' },
-          { title: 'Independent Headhunter', sub: 'LLM & Embodied AI · Executive search', years: '2026.04 — Present' },
+          { title: 'Headhunter', sub: 'LLM & Embodied AI', years: '2026.04 — Present' },
         ],
         education: [{ course: 'B.A. Human Resource Management', institution: 'Shaoguan University', year: '2021 — 2025', logo: '/logos/sgu.png' }],
         taglineLabel: 'Style: ',
@@ -141,17 +144,20 @@ const resources = {
         cases: [
           {
             label: 'Case A',
+            base: '+33%',
             cash: '+33%',
             total: '+100%',
             desc: 'Goal: resources to work on robotics. Matched to the right embodied AI startup based on direction conviction and team density.',
           },
           {
             label: 'Case B',
-            cash: '+60%',
-            total: '+150%',
+            base: '+146%',
+            cash: '+10%',
+            total: '+108%',
             desc: 'Goal: switch tracks, enter a new space, expand possibilities. Made a fully informed decision — no pressure, no information gaps.',
           },
         ],
+        baseLabel: 'Base increase',
         cashLabel: 'Cash increase',
         totalLabel: 'Total comp increase',
       },

@@ -35,6 +35,14 @@ export default function Track() {
               </HStack>
               <HStack spacing={8} mt={3} mb={3}>
                 <VStack align="start" spacing={0}>
+                  <Text fontSize="2xl" fontWeight={700} color="warm" fontFamily="mono">
+                    {item.base}
+                  </Text>
+                  <Text fontSize="xs" color="textMuted">
+                    {t('track.baseLabel')}
+                  </Text>
+                </VStack>
+                <VStack align="start" spacing={0}>
                   <Text fontSize="2xl" fontWeight={700} color="accent" fontFamily="mono">
                     {item.cash}
                   </Text>

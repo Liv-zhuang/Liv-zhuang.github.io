@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Box, Container, Flex, Link, Text, VStack } from '@chakra-ui/react'
-import { FaEnvelope, FaWeixin, FaLinkedin, FaCheck, FaHexagon } from 'react-icons/fa6'
+import { FaEnvelope, FaWeixin, FaLinkedin, FaGithub, FaCheck } from 'react-icons/fa6'
 import { useTranslation } from 'react-i18next'
 import SectionHeading from './SectionHeading'
 
@@ -54,6 +54,13 @@ export default function Contact() {
       label: 'LinkedIn',
       value: 'Liv Zhuang',
       href: 'https://www.linkedin.com/in/liv-zhuang-a77837348/',
+    },
+    {
+      key: 'github',
+      icon: FaGithub,
+      label: 'GitHub',
+      value: 'github.com/Liv-zhuang',
+      href: 'https://github.com/Liv-zhuang',
     },
   ]
 

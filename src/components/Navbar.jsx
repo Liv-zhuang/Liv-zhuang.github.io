@@ -15,7 +15,7 @@ import {
   useColorMode,
   useDisclosure,
 } from '@chakra-ui/react'
-import { FaBars, FaXmark, FaGithub, FaLinkedin, FaEnvelope, FaSun } from 'react-icons/fa6'
+import { FaBars, FaXmark, FaGithub, FaLinkedin, FaEnvelope, FaFilePdf, FaSun } from 'react-icons/fa6'
 import { FiMoon } from 'react-icons/fi'
 import { useTranslation } from 'react-i18next'
 
@@ -42,6 +42,7 @@ export default function Navbar() {
     { icon: FaEnvelope, href: 'mailto:zhuang9729@gmail.com', label: 'Email' },
     { icon: FaGithub, href: 'https://github.com/Liv-zhuang', label: 'GitHub' },
     { icon: FaLinkedin, href: 'https://www.linkedin.com/in/liv-zhuang-a77837348/', label: 'LinkedIn' },
+    { icon: FaFilePdf, href: '/cv/resume.pdf', label: 'CV' },
   ]
 
   const SocialIcon = ({ s, size = '1.2rem' }) => (

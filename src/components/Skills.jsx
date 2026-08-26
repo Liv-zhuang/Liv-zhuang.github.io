@@ -53,7 +53,7 @@ export default function Skills() {
   )
 
   return (
-    <Box w="full" py={[4, 6]}>
+    <Box id="focus" w="full" py={[4, 6]}>
       <Container maxW={['full', 'full', '7xl']} px={[2, 4, 8]}>
         <SectionHeading title={t('skills.title')} />
 

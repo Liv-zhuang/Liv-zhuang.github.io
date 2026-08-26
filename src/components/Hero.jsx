@@ -14,7 +14,7 @@ import {
   Tooltip,
   useColorModeValue,
 } from '@chakra-ui/react'
-import { FaBriefcase, FaGraduationCap, FaEnvelope, FaGithub, FaLinkedin, FaCheck } from 'react-icons/fa6'
+import { FaBriefcase, FaEnvelope, FaGithub, FaLinkedin, FaFilePdf, FaCheck } from 'react-icons/fa6'
 import { useTranslation } from 'react-i18next'
 import SocialButton from './SocialButton'
 
@@ -65,6 +65,7 @@ export default function Hero() {
     { href: 'https://www.linkedin.com/in/liv-zhuang-a77837348/', icon: FaLinkedin, label: 'LinkedIn', color: '#0A66C2' },
     { href: 'https://github.com/Liv-zhuang', icon: FaGithub, label: 'GitHub', color: 'var(--accent-color)' },
     { href: `mailto:${t('contact.email')}`, icon: FaEnvelope, label: 'Email', color: 'var(--accent-color)' },
+    { href: '/cv/resume.pdf', icon: FaFilePdf, label: 'CV', color: 'var(--prompt-color)' },
   ]
 
   const copyChips = [
@@ -207,7 +208,11 @@ export default function Hero() {
                         justify="center"
                         flexShrink={0}
                       >
-                        <Box as={FaBriefcase} color="accent" fontSize="sm" />
+                        {item.logo ? (
+                          <Image src={item.logo} alt={item.title} w="24px" h="24px" objectFit="contain" />
+                        ) : (
+                          <Box as={FaBriefcase} color="accent" fontSize="sm" />
+                        )}
                       </Flex>
                       <VStack align="start" spacing={0} flex={1} minW={0}>
                         <Text fontSize={['xs', 'sm']} fontWeight="medium" lineHeight="short" color={headingColor}>
@@ -276,9 +281,13 @@ export default function Hero() {
                       justify="center"
                       flexShrink={0}
                     >
-                      <Text fontSize="sm" fontWeight="bold" color="accent">
-                        {item.institution.charAt(0)}
-                      </Text>
+                      {item.logo ? (
+                        <Image src={item.logo} alt={item.institution} w="24px" h="24px" objectFit="contain" />
+                      ) : (
+                        <Text fontSize="sm" fontWeight="bold" color="accent">
+                          {item.institution.charAt(0)}
+                        </Text>
+                      )}
                     </Flex>
                     <VStack align="start" spacing={0} flex={1} minW={0}>
                       <Text fontSize={['xs', 'sm']} fontWeight="medium" lineHeight="short" color={headingColor}>
@@ -380,19 +389,6 @@ export default function Hero() {
           <MotionBox initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
             <VStack spacing={[2, 3]}>
               <Box position="relative" transition="transform 0.25s ease" _hover={{ transform: 'translateY(-3px)' }}>
-                <Box
-                  aria-hidden="true"
-                  position="absolute"
-                  top="10px"
-                  left="10px"
-                  right="-10px"
-                  bottom="-10px"
-                  borderRadius="16px"
-                  border="1px solid"
-                  borderColor="var(--accent-color)"
-                  opacity={0.35}
-                  pointerEvents="none"
-                />
                 <Image
                   src="/avatar.jpg"
                   alt={t('hero.name')}

@@ -58,7 +58,7 @@ export default function Contact() {
   ]
 
   return (
-    <Box w="full" py={[4, 6]}>
+    <Box id="contact" w="full" py={[4, 6]}>
       <Container maxW={['full', 'full', '7xl']} px={[2, 4, 8]}>
         <SectionHeading title={t('contact.title')} />
         <Text fontSize="sm" color="textSecondary" mb={4} lineHeight="tall" maxW="760px">

@@ -25,6 +25,9 @@ const LINKS = [
   { key: 'nav.contact', href: '#contact' },
 ]
 
+const getLinks = (hasTrack) =>
+  LINKS.filter((l) => l.key !== 'nav.track' || hasTrack)
+
 export default function Navbar() {
   const { t, i18n } = useTranslation()
   const { colorMode, toggleColorMode } = useColorMode()
@@ -33,6 +36,8 @@ export default function Navbar() {
   const logoGradient = isDark
     ? 'linear(112deg, #f0854e, #d76ad4, #8aa2f2)'
     : 'linear(112deg, #ef6a38, #c44fbf, #3a5fd9)'
+  const trackCases = t('track.cases', { returnObjects: true })
+  const links = getLinks(Array.isArray(trackCases) && trackCases.some((c) => !c.hidden))
 
   const toggleLang = () => {
     i18n.changeLanguage(i18n.language === 'zh' ? 'en' : 'zh')
@@ -120,7 +125,7 @@ export default function Navbar() {
         </ChakraLink>
 
         <HStack spacing={7} display={{ base: 'none', md: 'flex' }} ml="auto" mr={{ base: 0, md: 6 }}>
-          {LINKS.map((item) => (
+          {links.map((item) => (
             <Box key={item.href} as="span" position="relative">
               <ChakraLink
                 href={item.href}
@@ -189,7 +194,7 @@ export default function Navbar() {
           </DrawerHeader>
           <DrawerBody pt={4}>
             <VStack align="stretch" spacing={3}>
-              {LINKS.map((item) => (
+              {links.map((item) => (
                 <ChakraLink
                   key={item.href}
                   href={item.href}
@@ -262,3 +267,4 @@ export default function Navbar() {
     </Box>
   )
 }
+

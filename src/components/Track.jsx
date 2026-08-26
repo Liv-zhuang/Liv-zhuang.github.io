@@ -6,6 +6,8 @@ export default function Track() {
   const { t } = useTranslation()
   const cases = t('track.cases', { returnObjects: true }).filter((c) => !c.hidden)
 
+  if (cases.length === 0) return null
+
   return (
     <Box id="track" w="full" py={[4, 6]}>
       <Container maxW={['full', 'full', '7xl']} px={[2, 4, 8]}>

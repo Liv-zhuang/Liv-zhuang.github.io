@@ -18,6 +18,7 @@ import { FaBriefcase, FaGraduationCap, FaEnvelope, FaGithub, FaLinkedin, FaCheck
 import { useTranslation } from 'react-i18next'
 import SocialButton from './SocialButton'
 
+const MotionBox = motion(Box)
 const MotionText = motion(Text)
 
 const copyText = async (text) => {

@@ -66,6 +66,7 @@ const resources = {
           {
             label: 'Case B',
             path: '大厂AIGC核心人员→具身WM',
+            hidden: true,
             base: '+146%',
             cash: '+10%',
             total: '+108%',
@@ -155,6 +156,7 @@ const resources = {
           {
             label: 'Case B',
             path: 'Big-tech AIGC core → Embodied WM',
+            hidden: true,
             base: '+146%',
             cash: '+10%',
             total: '+108%',

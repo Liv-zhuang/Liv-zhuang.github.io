@@ -4,7 +4,7 @@ import SectionHeading from './SectionHeading'
 
 export default function Track() {
   const { t } = useTranslation()
-  const cases = t('track.cases', { returnObjects: true })
+  const cases = t('track.cases', { returnObjects: true }).filter((c) => !c.hidden)
 
   return (
     <Box id="track" w="full" py={[4, 6]}>

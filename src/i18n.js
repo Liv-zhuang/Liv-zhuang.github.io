@@ -113,7 +113,7 @@ const resources = {
         education: [{ course: 'B.A. Human Resource Management', institution: 'Shaoguan University', year: '2021 — 2025', logo: '/logos/sgu.png' }],
         taglineLabel: 'Style: ',
         tagline:
-          "I like to be direct — the pros and cons of every role; stay in touch when timing isn't right; candidate info strictly confidential.",
+          "Speak straight — be clear about the pros and cons; stay in touch when timing isn't right; candidate info strictly confidential.",
       },
       skills: {
         title: 'Focus Areas',

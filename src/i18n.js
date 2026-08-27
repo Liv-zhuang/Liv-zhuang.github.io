@@ -90,6 +90,8 @@ const resources = {
       },
       footer: {
         text: '©',
+        visits: '访问量',
+        visitors: '访客数',
       },
     },
   },
@@ -181,6 +183,8 @@ const resources = {
       },
       footer: {
         text: '©',
+        visits: 'Page views',
+        visitors: 'Visitors',
       },
     },
   },

@@ -149,7 +149,6 @@ export default function Navbar() {
           {socials.map((s) => (
             <SocialIcon key={s.label} s={s} />
           ))}
-          <Box h="22px" w="1px" bg="var(--border-color)" />
           <WechatQRButton placement="bottom" />
           <Button
             size="xs"

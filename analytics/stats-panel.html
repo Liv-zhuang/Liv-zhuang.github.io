@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>访问统计面板（私人）</title>
+<style>
+  :root {
+    --bg: #131217; --card: #1a1920; --border: rgba(160,158,180,.15);
+    --text: #eceaf2; --sec: #a09eae; --muted: #6c6a78; --accent: #8aa2f2; --prompt: #f0925e;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.6 ui-sans-serif, system-ui, -apple-system, "PingFang SC", "Segoe UI", sans-serif; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 24px 16px 60px; }
+  h1 { font: 700 18px/1.2 ui-monospace, Menlo, Consolas, monospace; letter-spacing: -.01em; }
+  h1 span { color: var(--prompt); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 18px 0 26px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .card .n { font: 700 26px/1.1 ui-monospace, Menlo, monospace; color: var(--accent); }
+  .card .l { color: var(--muted); font-size: 12px; margin-top: 4px; }
+  section { margin-top: 26px; }
+  h2 { font: 600 14px/1 ui-monospace, Menlo, monospace; letter-spacing: .04em; color: var(--text); margin: 0 0 10px; }
+  h2::before { content: '›'; color: var(--prompt); margin-right: 8px; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  th, td { padding: 8px 12px; text-align: left; font-size: 13px; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font: 600 11px/1 ui-monospace, Menlo, monospace; text-transform: uppercase; letter-spacing: .06em; }
+  td { color: var(--sec); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; }
+  .bar { background: rgba(138,162,242,.13); color: var(--accent); border-radius: 5px; height: 7px; }
+  .k { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .k .n { width: 130px; color: var(--sec); font-size: 12px; }
+  .k .v { width: 50px; color: var(--text); font: 600 12px ui-monospace, Menlo; text-align: right; }
+  .k .bar { flex: 1; }
+  .cfg { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  input { background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font: 12px ui-monospace, Menlo, monospace; min-width: 180px; flex: 1; }
+  button { background: var(--accent); color: #131217; border: 0; border-radius: 8px; padding: 9px 18px; font: 600 13px ui-monospace, Menlo; cursor: pointer; }
+  button:hover { filter: brightness(1.1); }
+  .status { color: var(--prompt); font: 12px ui-monospace, Menlo; margin: 8px 2px; min-height: 18px; }
+  a { color: var(--accent); text-decoration: none; }
+  @media (prefers-color-scheme: light) {
+    :root { --bg: #f6f4ef; --card: #fff; --border: rgba(76,66,43,.14); --text: #181a1f; --sec: #565d68; --muted: #9b9789; --accent: #3a5fd9; --prompt: #be4519; }
+    button { color: #f6f4ef; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Liv Zhuang 访问统计 <span>·</span> 私人面板</h1>
+
+  <div class="cfg" style="margin-top:16px">
+    <input id="url" placeholder="Worker 地址，如 https://stat.xxx.workers.dev" value="" />
+    <input id="token" placeholder="访问口令 token" type="password" value="" />
+    <button id="load">刷新数据</button>
+  </div>
+  <div class="status" id="status"></div>
+
+  <div class="cards">
+    <div class="card"><div class="n" id="pv">-</div><div class="l">累计浏览量 PV</div></div>
+    <div class="card"><div class="n" id="pvToday">-</div><div class="l">今日浏览量</div></div>
+    <div class="card"><div class="n" id="uvToday">-</div><div class="l">今日访客 UV</div></div>
+    <div class="card"><div class="n" id="chCount">-</div><div class="l">来源渠道</div></div>
+  </div>
+
+  <section>
+    <h2>来源渠道分布</h2>
+    <div id="channel"></div>
+  </section>
+
+  <section>
+    <h2>访客所在地分布</h2>
+    <div id="country"></div>
+  </section>
+
+  <section>
+    <h2>最近访问记录（最多 50 条）</h2>
+    <table>
+      <thead><tr><th>时间</th><th>IP</th><th>地标</th><th>浏览器</th><th>来源</th></tr></thead>
+      <tbody id="recent"></tbody>
+    </table>
+  </section>
+</div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  const store = JSON.parse(localStorage.getItem('lv-stats') || '{}');
+  if (store.url) $('url').value = store.url;
+  if (store.token) $('token').value = store.token;
+
+  const fmt = (ts) => { const d = new Date(ts); const p = (x) => String(x).padStart(2, '0'); return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`; };
+  const countryName = (c) => ({ CN: '中国', US: '美国', HK: '香港', TW: '台湾', JP: '日本', SG: '新加坡', DE: '德国', GB: '英国', KR: '韩国', IN: '印度', RU: '俄罗斯', CA: '加拿大', AU: '澳大利亚', FR: '法国' }[c] || c || '未知');
+  const uaShort = (ua) => {
+    if (!ua) return '';
+    if (/firefox/i.test(ua)) return 'Firefox';
+    if (/edg/i.test(ua)) return 'Edge';
+    if (/chrome/i.test(ua)) return 'Chrome';
+    if (/safari/i.test(ua)) return 'Safari';
+    if (/qqbrowser/i.test(ua)) return 'QQ';
+    if (/micromessenger/i.test(ua)) return '微信';
+    if (/weibo/i.test(ua)) return '微博';
+    return ua.slice(0, 40);
+  };
+  const renderBars = (el, data) => {
+    const entries = Object.entries(data).sort((a, b) => b[1] - a[1]);
+    const max = entries.length ? entries[0][1] : 0;
+    el.innerHTML = entries.length === 0 ? '<p style="color:var(--muted)">暂无数据</p>' : entries.map(([k, v]) =>
+      `<div class="k"><span class="n">${k}</span><div class="bar" style="width:${Math.max(4, (v/max)*100*(max>50?60:100))}px"></div><span class="v">${v}</span></div>`
+    ).join('');
+  };
+
+  async function load() {
+    const url = $('url').value.trim().replace(/\/$/, '');
+    const token = $('token').value.trim();
+    if (!url || !token) { $('status').textContent = '请填写 Worker 地址和口令'; return; }
+    localStorage.setItem('lv-stats', JSON.stringify({ url, token }));
+    $('status').textContent = '加载中...';
+    try {
+      const res = await fetch(`${url}/api/stats?token=${encodeURIComponent(token)}`);
+      if (res.status === 401) { $('status').textContent = '口令错误'; return; }
+      if (!res.ok) { $('status').textContent = `请求失败（${res.status}），检查地址是否为 https://xxx.workers.dev`; return; }
+      const d = await res.json();
+      $('pv').textContent = d.pv || 0;
+      $('pvToday').textContent = d.pvToday || 0;
+      $('uvToday').textContent = d.uvToday || 0;
+      $('chCount').textContent = Object.keys(d.byChannel || {}).length;
+      renderBars($('channel'), d.byChannel || {});
+      const country = {};
+      for (const [c, v] of Object.entries(d.byCountry || {})) country[countryName(c)] = v;
+      renderBars($('country'), country);
+      $('recent').innerHTML = (d.recent || []).map((r) =>
+        `<tr><td>${fmt(r.ts)}</td><td>${r.ip || '-'}</td><td>${countryName(r.country)}</td><td>${uaShort(r.ua)}</td><td>${(r.referrer || '直接访问').slice(0, 60)}</td></tr>`
+      ).join('') || '<tr><td colspan=5 style="color:var(--muted)">暂无记录</td></tr>';
+      $('status').textContent = `更新于 ${new Date().toLocaleString()}`;
+    } catch (e) {
+      $('status').textContent = '无法连接 Worker，请检查网络/地址';
+    }
+  }
+
+  $('load').addEventListener('click', load);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Enter') load(); });
+  if (store.url && store.token) load();
+</script>
+</body>
+</html>

@@ -18,6 +18,7 @@ import {
 import { FaBars, FaXmark, FaGithub, FaLinkedin, FaEnvelope, FaFilePdf, FaSun } from 'react-icons/fa6'
 import { FiMoon } from 'react-icons/fi'
 import { useTranslation } from 'react-i18next'
+import WechatQRButton from './WechatQRButton'
 
 const LINKS = [
   { key: 'nav.skills', href: '#focus' },
@@ -148,6 +149,8 @@ export default function Navbar() {
           {socials.map((s) => (
             <SocialIcon key={s.label} s={s} />
           ))}
+          <Box h="22px" w="1px" bg="var(--border-color)" />
+          <WechatQRButton placement="bottom" />
           <Button
             size="xs"
             variant="ghost"

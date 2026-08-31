@@ -10,6 +10,7 @@ import './index.css'
 import App from './App'
 import theme from './theme'
 import './i18n'
+import './analytics'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

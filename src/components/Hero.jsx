@@ -7,11 +7,6 @@ import {
   HStack,
   Image,
   Link,
-  Popover,
-  PopoverArrow,
-  PopoverBody,
-  PopoverContent,
-  PopoverTrigger,
   SimpleGrid,
   Stack,
   Text,
@@ -19,9 +14,10 @@ import {
   Tooltip,
   useColorModeValue,
 } from '@chakra-ui/react'
-import { FaBriefcase, FaEnvelope, FaGithub, FaLinkedin, FaFilePdf, FaWeixin, FaCheck } from 'react-icons/fa6'
+import { FaBriefcase, FaEnvelope, FaGithub, FaLinkedin, FaFilePdf, FaCheck } from 'react-icons/fa6'
 import { useTranslation } from 'react-i18next'
 import SocialButton from './SocialButton'
+import WechatQRButton from './WechatQRButton'
 
 const MotionBox = motion(Box)
 const MotionText = motion(Text)
@@ -39,52 +35,6 @@ const copyText = async (text) => {
     document.execCommand('copy')
     document.body.removeChild(ta)
   }
-}
-
-function WechatQRButton() {
-  return (
-    <Popover trigger="hover" placement="top" openDelay={100} closeDelay={100}>
-      <PopoverTrigger>
-        <Box
-          as="button"
-          type="button"
-          aria-label="WeChat"
-          display="inline-flex"
-          alignItems="center"
-          justifyContent="center"
-          w="40px"
-          h="40px"
-          borderRadius="md"
-          border="1px solid"
-          borderColor="var(--border-color)"
-          color="var(--secondary-text)"
-          cursor="pointer"
-          transition="all 0.2s ease"
-          _hover={{
-            color: '#2aae67',
-            bg: 'var(--hover-color)',
-            borderColor: 'var(--border-strong)',
-            transform: 'translateY(-2px)',
-            boxShadow: 'var(--shadow-sm)',
-          }}
-        >
-          <FaWeixin size="1.1rem" />
-        </Box>
-      </PopoverTrigger>
-      <PopoverContent
-        bg="var(--elevated-bg)"
-        borderColor="var(--border-color)"
-        borderRadius="10px"
-        boxShadow="var(--shadow-card)"
-        w="auto"
-      >
-        <PopoverArrow bg="var(--elevated-bg)" />
-        <PopoverBody p={3}>
-          <Image src="/wechat-qrcode.png" alt="WeChat QR code" w="220px" borderRadius="8px" />
-        </PopoverBody>
-      </PopoverContent>
-    </Popover>
-  )
 }
 
 export default function Hero() {

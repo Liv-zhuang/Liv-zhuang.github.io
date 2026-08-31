@@ -1,6 +1,6 @@
 // 访客统计埋点：把页面访问上报到自建统计服务（Cloudflare Worker）
 // 部署后把下面地址换成实际 Worker 地址（如 https://stat.xxxx.workers.dev）
-const ANALYTICS_ENDPOINT = 'https://ANALYTICS-SERVICE-PLACEHOLDER/hit'
+const ANALYTICS_ENDPOINT = 'https://liv-stats.zhuang9729.workers.dev/hit'
 
 if (ANALYTICS_ENDPOINT && !ANALYTICS_ENDPOINT.includes('PLACEHOLDER')) {
   try {

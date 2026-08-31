@@ -45,7 +45,8 @@ async function handleHit(request, env) {
 
   let body = {}
   try {
-    body = await request.json()
+    const raw = await request.text()
+    if (raw) body = JSON.parse(raw)
   } catch (e) {
     /* ignore */
   }
